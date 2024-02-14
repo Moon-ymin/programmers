@@ -1,0 +1,29 @@
+/*
+1. 처음엔 빈 문자열 선언하고 for문 써서 역순으로 읽으려고 했음
+class Solution {
+    public String solution(String my_string) {
+        
+        String answer = "";
+        
+        for (int i=my_string.length() -1; i>=0; i--) {
+            answer = answer + my_string.charAt(i);
+            // charAt(i) : 문자열에서 문자의 순서를 나타냄, 문자열의 index 번호
+        }
+            
+        return answer;
+    }
+}
+문제 => 시간이 너무 많이 걸림!!
+
+2. reverse() 메서드 : 저장되어 있는 문자열의 순서를 거꾸로 나열하는 메서드
+- StringBuffer, StringBuilder 클래스의 메서드 
+*/
+
+class Solution {
+    public String solution(String my_string) {
+        
+        StringBuffer str = new StringBuffer(my_string);
+        
+        return str.reverse().toString();
+    }
+}
