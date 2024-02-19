@@ -29,3 +29,7 @@ a와 b의 최대공약수이다.
 1. StringBuffer은 멀티쓰레드에 안전하도록 동기화되어있다.
    - 멀티쓰레드로 작성된 프로그램이 아닌 경우, StringBuffer의 동기화는 불필요하게 성능만 떨어뜨리게 된다.
    - 그래서 StringBuffer에서 쓰레드의 동기화만 뺀 StringBuilder을 사용한다
+
+---
+### List<Integer> <-> int[] 변환
+배열 크기 선언의 어려움이 있을 때 : https://no-brain-dev.tistory.com/11
