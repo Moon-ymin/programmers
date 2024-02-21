@@ -1,0 +1,21 @@
+class Solution {
+    public int solution(int num, int k) {
+        String str = Integer.toString(num);
+        int answer = str.indexOf( Integer.toString(k) );
+        if (answer != -1) {
+            answer++;
+        }
+        return answer;
+    }
+}
+
+/* 사용함수
+  - int to str : String 문자열 = Integer.toString(정수);
+  - 특정 문자 위치찾기 
+    1) str.indexOf( String str | int ch | int ch, int fromIndex | String str, int fromIndex)
+    특정 문자나 문자열이 앞에서부터 처음 발견되는 인덱스를 반환
+    만약 찾지 못했을 경우 -1 반환 
+    2) str.lastIndexOf(String str | int ch | int ch, int fromIndex | String str, int fromIndex)
+    특정 문자나 문자열이 뒤에서부터 처음 발견되는 인덱스를 반환
+    만약 찾지 못했을 경우 -1 반환
+*/
