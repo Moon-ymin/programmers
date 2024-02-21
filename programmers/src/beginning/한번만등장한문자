@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        String[] str = s.split("");
+        
+        Arrays.sort(str); // 이거 중요함!!!!!!!!
+        
+        for(int i=0; i<s.length(); i++) {
+            int cnt = 0;
+            for(int j=0; j<s.length(); j++) {
+                if ( str[i].equals( str[j] ) ) {
+                    cnt++;
+                }
+            }
+            if (cnt == 1) {
+                answer += str[i];
+            }
+            
+        }
+        return answer;
+    }
+}
+
+// str to 배열 : String[] str = s.split("");
+// Arrays.sort( str ) : 배열 오름차순 정리
