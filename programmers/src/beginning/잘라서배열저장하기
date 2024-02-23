@@ -1,0 +1,39 @@
+import java.util.*;
+
+class Solution {
+    public String[] solution(String my_str, int n) {   // ("abc1Addfggg4556b",	6)
+        List<String> answer = new ArrayList<>();
+        
+        int m = n - my_str.length() % n;
+        if(my_str.length() % n != 0) {      // 1. 문자열 길이가 n으로 안나눠질 경우, 공백 추가해서 맞춤 
+            for( int i=0; i< m; i++ ){
+                my_str += " ";
+            }
+        }
+        
+        String[] str = my_str.split("");  // 2. 문자열을 잘라서 배열에 넣기
+    
+        for( int j=0; j< str.length ; j=j+n ) { // 3. 배열 길이만큼 전체 반복문
+            String s = "";
+            for(int i=0; i<n; i++) {  // 4. 길이 n만큼 문자열 생성
+                s += str[i+j];
+            }
+            answer.add(s);    // 5. 생성된 문자열 리스트에 담기
+        }
+        answer.set(answer.size() - 1,
+                answer.get(answer.size() - 1).replaceAll(" ","") );  // 6. 리스트의 마지막 인덱스에 담긴 문자열에 공백 있으면 제거
+
+        String[] result = answer.stream().toArray(String[]::new);  // 7. 리스트 배열로 변환
+
+        return result;
+    }
+}
+
+/* 사용 함수
+- String[] array = str.split("") : 문자열 잘라서 배열에 넣기
+- ArrayList.add( s ) : 인자 s를 리스트에 담기
+- ArrayList.set( index, s ) : 리스트의 index번째에 값을 s로 바꾸기
+- ArrayList.get( index ) : 리스트의 index번째 값 가져오기
+- string.replaceAll(" ", "") : 문자열의 공백을 제거
+- String[] result = List.stream().toArray(String[]::new) : 리스트를 배열로 변환
+*/
