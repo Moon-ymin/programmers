@@ -4,7 +4,7 @@ class Solution {
         answer = Integer.toBinaryString( Integer.parseInt(bin1, 2) + Integer.parseInt(bin2, 2));
         return answer;
     }
-}
+} 
 
 /* 사용 함수 
 - Integer 클래스의 toBinaryString 함수 이용
