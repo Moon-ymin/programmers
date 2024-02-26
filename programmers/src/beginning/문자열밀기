@@ -1,0 +1,23 @@
+class Solution {
+    public int solution(String A, String B) {
+        int answer = 0;
+        String copy = A;
+
+        for (int i = 0; i < A.length(); i++) {
+            if (copy.equals(B)) {
+                return answer;
+            }
+
+            String a = copy.substring(copy.length() - 1); // 문자 끝 글자만 잘라 a에 대입
+            copy = a + copy.substring(0, copy.length() - 1); // 끝 글자와 0부터 끝 글자 전까지 자른 문자를 더합니다.
+            answer++; 
+        }
+
+        return -1;
+    }
+}
+
+/* 사용함수
+- str.substring(int index) : index위치의 문자부터 끝까지
+- str.substring(int beginningIndex, int endIndex) : beginningIndex부터 시작해서 endIndex 전 위치까지 
+*/
