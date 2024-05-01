@@ -1,0 +1,18 @@
+// Combination 조합 : n개의 숫자 중에서 r개의 수를 순서 없이 뽑는 경우
+/* (참고)
+1. 조합에 관해 : https://bcp0109.tistory.com/15 
+2. 문제에 관해 : https://velog.io/@yuki-kim/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B5%AC%EC%8A%AC%EC%9D%84-%EB%82%98%EB%88%84%EB%8A%94-%EA%B2%BD%EC%9A%B0-Java
+nCr = n-1Cr + n-1Cr-1 의 재귀함수로 구현
+*/
+
+class Solution {
+    public int solution(int balls, int share) {
+        
+        return combination(balls, share);
+    }
+    
+    public static int combination(int balls, int share) {
+        if (balls == share || share == 0) return 1;
+        return combination( (balls - 1), (share - 1)) + combination(balls - 1, share);
+    }
+}

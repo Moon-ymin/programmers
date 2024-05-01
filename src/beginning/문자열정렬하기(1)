@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(String my_string) {
+        List<Integer> List = new ArrayList<>();                        // 배열은 길이를 먼저 선언해줘야해서, 길이 상관없는 리스트로 선언
+        for ( int i=0; i<my_string.length(); i++) {
+            if ( Character.isDigit( my_string.charAt(i) ) == true ) { 
+                List.add(my_string.charAt(i)-'0');                     // 리스트 값 추가
+            }
+        }
+        List.sort(Comparator.naturalOrder());                          // 리스트 오름차순 정렬
+        int[] answer = List.stream().mapToInt(i -> i).toArray();       // 리스트 -> 배열 변환 (람다식 이용)
+        
+        
+        return answer;
+    }
+}
+
+/*
+# ArrayList 준비
+List<Integer> list = new ArrayList<>();
+
+# Collecetions.sort()
+1. 오름차순 정렬 : Collections.sort(list)
+2. 내림차순 정렬 : Collections.sort(list, Collections.reverseOrder());
+3. 대소문자 구분없이 오름차순 정렬 : Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
+4. 대소문자 구분없이 내림차순 정렬 : Collections.sort(list, Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER));
+# List.sort() - Java 8 이후
+1. 오름차순 정렬 : list.sort(Comparator.naturalOrder())
+2. 내림차순 정렬 : list.sort(Comparator.reverseOrder())
+3. 대소문자 구분없이 오름차순 정렬 : list.sort(String.CASE_INSENSITIVE_ORDER)
+4. 대소문자 구분없이 내림차순 정렬 : list.sort(Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER))
+
+# List -> int 배열
+1. 반복문
+int[] arr = new int[list.size()];
+// 배열 안에 들어가는 값과 갯수는 어차피 list와 동일하다.
+
+for(int i = 0; i < list.size() or arr.length(); i++{
+	arr[i] = list.get(i);
+}
+//arr[i]에 들어 갈 원소는 list의 i번째 인덱스와 같다.
+
+2. stream의 mapToInt 이용
+int[] arr = list.stream().mapToInt(Integer::intValue).toArray();
+//메소드 참조방식
+
+//또는
+
+int[] arr = list.stream().mapToInt(i -> i).toArray();
+//람다식 이용
+
+*/

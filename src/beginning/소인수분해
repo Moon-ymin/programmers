@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int n) {
+        List<Integer> list = new ArrayList<>();
+        
+        // n의 소인수
+        for(int i=2; i<=n; i++) {
+        // 나누어 떨어지면 i는 소인수
+        // 몫이 2이상인 경우도 있어서 안나눠질때까지
+            if (n%i == 0) {
+                while(n%i==0) {
+                    n /= i;
+                }
+                list.add(i);
+            }
+        }
+        int[] answer = list.stream().mapToInt(i->i).toArray();
+        
+        
+        
+        return answer;
+    }
+}

@@ -1,0 +1,19 @@
+class Solution {
+    public int solution(int price) {
+        
+        if (price >= 500000) {
+            price *= .8;
+        } else if (price >= 300000) {
+            price *= .9;
+        } else if (price >= 100000) {
+            price *=0.95;
+        }
+        return price;
+    }
+}
+
+/* 만났던 오류
+- incompatible types: possible lossy conversion from double to int : int answer = 0;으로 되어있는 상태에 
+편집된 price값을 answer 변수에 담으려고 하니까 계속 변수형 오류가 났다.
+- if ~ else if문 쓸 때 더 작은 범위를 가지는 조건을 먼저 쓸 것
+*/

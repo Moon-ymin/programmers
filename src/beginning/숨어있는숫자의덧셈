@@ -1,0 +1,41 @@
+// 내 코드
+class Solution {
+    public int solution(String my_string) {
+        String[] str = my_string.split("");
+        int answer = 0;
+        String s = "";
+
+        for (int i = 0; i<str.length; i++) {
+
+            if( 65 > (byte)str[i].charAt(0) ) { // 숫자일 때
+                if( i != str.length-1 && 65 > (byte)str[i+1].charAt(0) ) { // 다음 문자도 숫자일 때
+                    s += str[i];
+                } else {
+                    s += str[i];
+                    answer += Integer.parseInt(s);
+                    s = "";
+                }
+            }
+        }
+        return answer;
+    }
+}
+
+// 다른 풀이
+class Solution {
+    public int solution(String my_string) { // "aAb1B2cC34oOp"
+        int answer = 0;
+        
+        my_string = my_string.replaceAll("[^\\d]", " ");  // "   1 2  34   "
+        // \\d : [0-9]와 동일한 의미를 가진다.
+        //  ^  : 정규표현식에서 "부정"을 나타내는 메타문자.
+        // 즉 [^\\d]는 숫자가 아닌 모든 문자를 뜻한다. -> 공백으로 표시
+        
+        String[] str = my_string.split(" "); // 공백 기준 배열에 담기 {" "," "," ","1"," ","2"," "," "," ","34"," "," "," "}
+        for (int i = 0; i < str.length; i++) {
+            answer += (!str[i].isEmpty()) ? Integer.parseInt(str[i]) : 0; // 비어있지 않으면 더한다
+        }
+        
+        return answer;
+    }
+}

@@ -1,0 +1,31 @@
+class Solution {
+    public int solution(int a, int b) {
+        int finalB = b / GCD(a,b);
+        
+        while( finalB != 1) {
+            if(finalB % 2 == 0) {
+                finalB /= 2;
+            } else if (finalB % 5 == 0) {
+                finalB /= 5;
+            } else {
+                return 2;
+            }
+        }
+        
+        return 1;
+    }
+    
+    //  유클리드 호제법. 최대공약수 구하기
+    private int GCD(int a, int b) {
+        if ( b==0 ) {
+            return a;
+        } else {
+            return GCD(b, a%b);
+        }
+    }
+}
+
+/* 유한소수 조건
+1. 기약분수 ← 분자와 분모의 최대공약수 약분
+2. 분모의 소인수가 2나 5만 있다
+*/

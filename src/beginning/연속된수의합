@@ -1,0 +1,41 @@
+// 내 코드
+import java.util.*;
+
+class Solution {
+    public int[] solution(int num, int total) {
+        List<Integer> answer = new ArrayList<>();
+        
+        if(num%2 == 0) { // 길이가 짝수
+            for(int i=-num/2; i<num/2; i++) {
+                answer.add( total/num +1 + i);
+            }
+        } else { // 길이가 홀수
+            for( int i=(-num+1)/2; i<=(num-1)/2; i++ ){
+                answer.add( total/num + i );
+            }
+        }
+        int[] arr = answer.stream().mapToInt(i -> i).toArray();
+        
+        return arr;
+    }
+}
+
+
+
+// 다른 풀이 : https://fall-in-dream.tistory.com/28
+class Solution {
+    public static int[] solution(int num, int total) {
+        int[] answer = new int[num];
+        int start = 0;
+        int sum = 0;
+        for(int i = start; i < start + num; i++) {
+    		sum+=i;
+    	}
+        start += (total-sum)/num;
+        for(int i = 0; i < num; i++) {
+    		answer[i]=start;
+    		start++;
+    	}
+        return answer;
+    }
+}

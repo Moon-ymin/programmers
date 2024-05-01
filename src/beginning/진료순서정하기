@@ -1,0 +1,27 @@
+/* 
+2중 for문으로 emergency의 원소들을 서로 비교했을 때 
+한쪽의 응급도가 더 높다면 낮은 쪽의 순서 배열에 +1을 했다. 
+
+emergency	              result
+[3, 76, 24]	          [3, 1, 2]
+[1, 2, 3, 4, 5, 6, 7]	[7, 6, 5, 4, 3, 2, 1]
+[30, 10, 23, 6, 100]	[2, 4, 3, 5, 1]
+*/
+
+
+
+class Solution {
+    public int[] solution(int[] emergency) {
+        int[] answer = new int[emergency.length];
+        
+        for (int i=0; i<emergency.length; i++) {
+            for (int j=0; j<emergency.length; j++) {
+                if (emergency[i] < emergency[j]) {
+                    answer[i]++;
+                }
+            }
+            answer[i]++; // 시작이 1이어야하니까 무조건 1씩은 더해줌
+        }
+        return answer;
+    }
+}

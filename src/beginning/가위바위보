@@ -1,0 +1,34 @@
+// 내 풀이
+class Solution { // 가위 2 바위 0 보 5
+    public String solution(String rsp) {
+        String answer = "";
+        String[][] matrix = {
+            {"2", "0"},
+            {"0", "5"},
+            {"5", "2"}
+        };
+        
+        for (int i=0; i<rsp.length(); i++) {
+            for (int j=0; j<3; j++ )
+                if( ( String.valueOf( rsp.charAt(i) ) ).equals(matrix[j][0] )) {
+                    answer += matrix[j][1];
+                }
+        }
+        return answer;
+    }
+}
+
+// 다른 사람
+class Solution {
+    public String solution(String rsp) {
+        String answer = "";
+        for (int i = 0; i < rsp.length(); i++) {
+			    answer += rsp.charAt(i)=='2' ? "0" : rsp.charAt(i)=='0' ? "5" : "2";   
+		    }
+        return answer;
+    }
+}
+
+// str.charAt(i) : 문자열에서 인덱스로 문자 찾기 ( type : char )
+// String.valueOf( char ) : 문자를 문자열로 변환 ( type : char -> type : string )
+// 삼항 연산자의 겹치는 걸로 다중 조건문 만들 수 있음 

@@ -1,0 +1,26 @@
+class Solution {
+    public String solution(String my_string) {
+        String answer = "";
+        String[] vowels = {"a","e","i","o","u"};
+        
+        for(String s: vowels) {
+            if(my_string.contains(s)){
+                answer = my_string.replaceAll(s,"");   
+                my_string = answer; // 모음제거한 문장을 다시 변수 my_string에 담고 반복문 계속하기
+            } else {
+                answer = my_string;
+            }
+        }
+        return answer;
+    }
+}
+
+/* String의 replace 메소드
+str.replace( char oldChar, char newChar )
+str.replace( charSequence target, charSequence replacement)
+str.replaceAll( String regex, String replacement )
+str.replaceFirst( String regex, String replacement )
+
+** replaceAll의 여러 문자를 regex에 입력 시
+replaceAll("[aeiou]", "");
+*/

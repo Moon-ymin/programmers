@@ -1,0 +1,21 @@
+class Solution {
+    public long solution(String numbers) {
+        String[] alpha = {
+                "zero", "one", "two"
+                , "three", "four", "five"
+                , "six", "seven", "eight", "nine"};
+                
+        for(int i=0; i<alpha.length; i++) {
+            numbers = numbers.replaceAll(alpha[i],String.valueOf(i));
+        }
+        return Long.parseLong(numbers);
+    }
+}
+
+/* 
+- str.replaceAll( str1, str2 ); : str의 str1을 str2로 변환하는 함수
+- replace() vs replaceAll 
+  - String replace(CharSequence target, CharSequence replacement)
+  - String replaceAll(String regex, String replacement)
+  - 인자 값의 형태가 CharSequence와 String으로 다르다
+  - replaceAll의 regex는 정규표현식 상용까지 가능하다

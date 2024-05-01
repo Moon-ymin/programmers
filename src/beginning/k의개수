@@ -1,0 +1,18 @@
+class Solution {
+    public int solution(int i, int j, int k) {
+        int answer = 0;
+        String str = String.valueOf(k);
+
+        for(int l=i; l<=j; l++) {
+            // .valueOf() : 괄호 안의 객체를 String으로 변환
+            String value = String.valueOf(l);
+            if (value.contains(str)) { // 대상 문자열에 특정 문자열이 포함되어 있는지 확인 bool 타입
+                String[] array = value.split("");
+                for(String a : array) { // 단어를 쪼개서 확인
+                    if (a.equals(str)) answer++;
+                }
+            }
+        }
+        return answer;
+    }
+}
