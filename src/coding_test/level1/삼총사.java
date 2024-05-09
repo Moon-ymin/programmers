@@ -1,4 +1,4 @@
-package coding_test/level1;
+package coding_test.level1;
 // 삼총사 : https://school.programmers.co.kr/learn/courses/30/lessons/131705
 
 class Solution {
