@@ -22,7 +22,6 @@ public class Solution {
 }
 
 // 다른 풀이
-import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {

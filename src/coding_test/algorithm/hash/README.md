@@ -1,4 +1,3 @@
-- https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0
 # 해시(Hash)
 - 입력 데이터를 고정된 길이의 데이터로 변환된 값
 - = 해시 값, 해시 코드, 체크섬
@@ -51,14 +50,33 @@ Integer hashFunction(String key){
 - 캐쉬 구현
 
 ## 05. 해시 구현하기
-```java
-// 기본적인 해시 테이블 구현
-public class Hash{
-    
-    // Hash Table
-    public Slot[] hashTable;    // 배열 형태로 선언
-    
-    // Hash 객체를 생성할 때 table 사이즈 지정
-    
-}
-```
+- [기본적인 해시 테이블 구현](Hash.java)
+
+---
+# 충돌
+- 만약 동일한 key 가 있어서 같은 값을 반환 받게 된다면?? `충돌`
+- 발생 이유
+  1. 함수 알고리즘의 성능이 좋지 못함
+  2. 저장되는 데이터 양이 해시 테이블의 크기보다 클 때
+## 01. 충돌 해결하기
+해시 함수를 개선하는 방법도 있지만, 데이터가 대량으로 있을 때는 해시 함수의 성능이 정말 좋아졌는지 파악하기 어려움 `Chaining, Linear Probing` 기법으로 해결
+
+### 1) Chaining 기법
+- 개방 해싱 또는 Open Hashing 기법 중 하나 : 해시 테이블 저장공간 외의 공간을 활용하는 기법
+- 충돌이 발생했을 때, 연결 리스트(Linked List) 자료구조를 사용해서 해결하는 방법
+  ![img_1.png](img_1.png)
+  - [chaining 기법 구현](Hash_Chaining.java)
+    - ![img_3.png](img_3.png)
+
+### 2) Linear Probing 기법
+- 폐쇄 해싱 또는 Closing Hashing 기법 중 하나 : 해시 테이블 저장공간 안에서 충돌 문제를 해결하는 기법
+- 충돌이 발생했을 떄, 해당 해시 주소(index)의 다음 주소(index)부터 맨 처음까지 순회하며 빈 공간을 찾는 방식
+- 저장공간 활용도를 높이기 위한 기법
+- 해시 함수를 통해서 얻은 주소(index)에 이미 데이터가 있다면, 다음 주소를 체크한다. 만약 체크했을 떄 데이터가 없다면, 해당 자리에 저장이 된다
+- [Linear Probing 기법 구현](Hash_LinearProbing.java)
+  - ![img_2.png](img_2.png)
+
+---
+# 시간 복잡도
+- 충돌이 없는 일반적인 경우 O(1) : 키를 통해 바로 저장과 검색을 하여 값을 구하기 때문
+- 최악의 경우, 즉 모든 index 에서 충돌이 발생할 경우 O(n) 
